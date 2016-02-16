@@ -9,7 +9,7 @@ var sendJSONresponse=function(res,status,content){
 
 module.exports={
   getAllProfs:function(req,res){
-    Prof.findAll({order:[['nom','ASC']]}).then(function(data){
+    Prof.findAll({order:[['nom','ASC']],include:[Cours]}).then(function(data){
       sendJSONresponse(res,200,data);
     },function(err){
       sendJSONresponse(res,404,err);

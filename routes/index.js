@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 })
 .get('/profs', ProfController.getAllProfs)
-.post('/profs',ProfController.ajouterProf)
+//.post('/profs',ProfController.ajouterProf)
 .get('/profs/:profId',ProfController.getProf)
 .get('/profs/:profId/cours',ProfController.getAllCoursByProfId)
 //cours
 .get('/cours',CoursController.getAllCours)
 .post('/cours',CoursController.ajouterCours)
-.get('/cours/:no',CoursController.getCours);
+//.get('/cours/:no',CoursController.getCours);
 
 module.exports = router;
