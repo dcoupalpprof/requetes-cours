@@ -11,11 +11,11 @@ var sequelize=new Sequelize('tim','root','',{
 });
 
 //Migration
-sequelize.sync({force:true})
+/*sequelize.sync({force:true})
 .then(function(err){
   console.log('Migration complétée');
 },function(err){
   console.log(err);
-});
+});*/
 
 module.exports=sequelize;
