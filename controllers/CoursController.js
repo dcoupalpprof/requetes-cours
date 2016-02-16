@@ -27,11 +27,15 @@ module.exports={
     });
   },
   getCours:function(req,res,content){
-    if(!req.params.coursId){
+    if(!req.params.no){
       sendJSONresponse(res,400,{message:'Vous devez fournir un id cours dans la requête'});
     }
-    Cours.findById(req.params.coursId).then(function(data){
-      sendJSONresponse(res,200,data.dataValues);
+    Cours.find({where:{no:req.params.no}}).then(function(data){
+      if(data){
+          sendJSONresponse(res,200,data.dataValues);
+      }else{
+          sendJSONresponse(res,404,{message:'Aucun cours trouvé avec ce numéro'});
+      }
     },function(err){
       sendJSONresponse(res,400,err);
     });

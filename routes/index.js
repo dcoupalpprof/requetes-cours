@@ -14,6 +14,6 @@ router.get('/', function(req, res, next) {
 //cours
 .get('/cours',CoursController.getAllCours)
 .post('/cours',CoursController.ajouterCours)
-.get('/cours/:coursId',CoursController.getCours);
+.get('/cours/:no',CoursController.getCours);
 
 module.exports = router;

@@ -20,7 +20,11 @@ module.exports={
       sendJSONresponse(res,400,{message:'Vous devez fournir un id prof dans la requête'});
     }
     Prof.findById(req.params.profId).then(function(data){
-      sendJSONresponse(res,200,data.dataValues);
+      if(data){
+        sendJSONresponse(res,200,data.dataValues);
+      }else{
+        sendJSONresponse(res,404,{message:'Aucun enseignant trouvé avec ce id'});
+      }
     },function(err){
       sendJSONresponse(res,400,err);
     });
